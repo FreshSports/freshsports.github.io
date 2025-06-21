@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>アスリートのための確定申告サポート | あなたのパフォーマンスを最大化！</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #e0f7fa; /* Brighter light blue background */
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .hero {
+            background: linear-gradient(135deg, #4DD0E1 0%, #29B6F6 100%); /* More vibrant gradient */
+            color: white;
+            padding: 4rem 2rem;
+            border-radius: 1rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        .btn-primary {
+            background-color: #FF9800; /* Brighter orange */
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 9999px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .btn-primary:hover {
+            background-color: #FB8C00; /* Darker orange on hover */
+            transform: translateY(-2px);
+            box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+        }
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #1976D2; /* More vibrant blue for headings */
+        }
+        .card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        .feature-icon {
+            font-size: 3rem;
+            color: #2196F3; /* Brighter blue for icons */
+            margin-bottom: 1rem;
+        }
+        .flow-step {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+        .flow-arrow {
+            position: absolute;
+            top: 50%;
+            left: 100%;
+            transform: translateY(-50%) translateX(-50%);
+            width: 40px; /* Adjust arrow width */
+            height: 40px; /* Adjust arrow height */
+            background-color: #B0BEC5; /* Gray arrow */
+            clip-path: polygon(0 0, 75% 50%, 0 100%);
+            z-index: 5;
+        }
+        .flow-line {
+            position: absolute;
+            height: 4px;
+            background-color: #B0BEC5;
+            z-index: 5;
+        }
+        .customer-voice-card {
+            background-color: #BBDEFB; /* More vibrant light blue for testimonial */
+            padding: 2.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .customer-voice-card::before {
+            content: "“";
+            position: absolute;
+            top: 0.5rem; /* Adjusted position */
+            left: 0.5rem; /* Adjusted position */
+            font-size: 6rem; /* Slightly smaller */
+            color: rgba(0,0,0,0.08); /* Slightly less transparent */
+            z-index: 0;
+            line-height: 1;
+        }
+        .customer-voice-canoe {
+            position: absolute;
+            bottom: -1rem; /* Adjust as needed */
+            right: 1rem; /* Adjust as needed to avoid text overlap */
+            font-size: 8rem; /* Keep it large but make it subtle */
+            opacity: 0.2; /* More transparent */
+            z-index: 0;
+            pointer-events: none; /* Make it non-interactive */
+        }
+        .price-card {
+            background-color: white;
+            padding: 2.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        .price-card h3 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: #1976D2;
+            margin-bottom: 1rem;
+        }
+        .price-card .price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #FF9800; /* Brighter orange */
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+        .price-card .price span {
+            font-size: 1.5rem;
+            font-weight: 400;
+        }
+        .disclaimer {
+            font-size: 0.9rem;
+            color: #718096;
+            line-height: 1.6;
+        }
+        .contact-section {
+            background-color: #BBDEFB; /* More vibrant lighter blue for contact */
+            padding: 3rem 2rem;
+            border-radius: 1rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .contact-section h2 {
+            color: #1976D2;
+        }
+        .wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px; /* Adjust as needed */
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg"><path fill="%23e0f7fa" fill-opacity="1" d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,160C672,171,768,213,864,208C960,203,1056,149,1152,144C1248,139,1344,181,1392,202.7L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat center bottom;
+            background-size: cover;
+            z-index: 1;
+            opacity: 0.3;
+        }
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero p {
+                font-size: 1.2rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .flow-arrow {
+                display: none; /* Hide arrows on small screens */
+            }
+            .flow-line {
+                display: none;
+            }
+            .customer-voice-canoe {
+                font-size: 6rem; /* Smaller on mobile */
+                right: 0.5rem;
+                bottom: -0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div class="wave"></div>
+        <div class="container relative z-10">
+            <h1>年収1000万円以下のアスリートを応援！<br>確定申告に向けた日々の経理、入力業務をさくっとお任せ！</h1>
+            <p>競技に集中したいアスリートのための、簡単・安心・お得な確定申告サポートサービス</p>
+            <a href="#price-plan" class="btn-primary inline-block">今すぐ詳細を見る！</a>
+        </div>
+    </div>
+
+    <section id="features" class="py-16">
+        <div class="container">
+            <h2 class="section-title">こんなお悩みありませんか？</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <div class="card text-center p-6">
+                    <div class="feature-icon mb-4">🏆</div>
+                    <h3 class="text-xl font-semibold mb-2 text-gray-800">競技に忙しくて時間がない...</h3>
+                    <p class="text-gray-600">遠征や練習で、経理作業に時間を割けないアスリートの方へ。</p>
+                </div>
+                <div class="card text-center p-6">
+                    <div class="feature-icon mb-4">🤯</div>
+                    <h3 class="text-xl font-semibold mb-2 text-gray-800">確定申告って難しそう...</h3>
+                    <p class="text-gray-600">税金の知識がなくて、何から手をつけていいか分からない。</p>
+                </div>
+                <div class="card text-center p-6">
+                    <div class="feature-icon mb-4">💰</div>
+                    <h3 class="text-xl font-semibold mb-2 text-gray-800">税金で損したくない！</h3>
+                    <p class="text-gray-600">しっかり節税して、手元に残るお金を増やしたい。</p>
+                </div>
+            </div>
+            <p class="text-center text-xl text-gray-700">当サービスが、あなたの確定申告を劇的に変えます！</p>
+        </div>
+    </section>
+
+    <section id="how-it-works" class="py-16 bg-white">
+        <div class="container">
+            <h2 class="section-title">驚くほど簡単な確定申告フロー</h2>
+            <div class="relative flex flex-col md:flex-row justify-center items-center md:items-start gap-8 md:gap-0">
+                <!-- Step 1 -->
+                <div class="flow-step flex-1 w-full md:w-auto relative">
+                    <div class="text-5xl mb-4">🏦💳</div>
+                    <h3 class="text-lg font-bold text-blue-700">銀行口座・クレカ連携</h3>
+                    <p class="text-sm text-gray-600">お使いの銀行口座やクレジットカードを会計ソフト「freee」に連携。</p>
+                    <div class="absolute -right-8 top-1/2 -translate-y-1/2 hidden md:block">
+                        <svg class="w-8 h-8 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M10.293 15.707a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                            <path fill-rule="evenodd" d="M4.293 15.707a1 1 0 010-1.414L8.586 10 4.293 5.707a1 1 0 011.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="flow-line w-full h-1 md:w-1 md:h-full bg-gray-300 md:hidden my-4"></div>
+
+                <!-- Step 2 -->
+                <div class="flow-step flex-1 w-full md:w-auto relative">
+                    <div class="text-5xl mb-4">🧾📱</div>
+                    <h3 class="text-lg font-bold text-blue-700">レシートはLINEで送るだけ</h3>
+                    <p class="text-sm text-gray-600">レシートや領収書はLINEで写真を送るだけ。手入力は不要です。</p>
+                    <div class="absolute -right-8 top-1/2 -translate-y-1/2 hidden md:block">
+                        <svg class="w-8 h-8 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M10.293 15.707a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                            <path fill-rule="evenodd" d="M4.293 15.707a1 1 0 010-1.414L8.586 10 4.293 5.707a1 1 0 011.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="flow-line w-full h-1 md:w-1 md:h-full bg-gray-300 md:hidden my-4"></div>
+
+                <!-- Step 3 -->
+                <div class="flow-step flex-1 w-full md:w-auto">
+                    <div class="text-5xl mb-4">👨‍💻✨</div>
+                    <h3 class="text-lg font-bold text-blue-700">プロに丸投げ！</h3>
+                    <p class="text-sm text-gray-600">記帳代行から決算整理まで、全て弊社にお任せください。あなたは競技に集中！</p>
+                </div>
+            </div>
+            <div class="text-center mt-8 text-gray-700">
+                <p>※確定申告書の提出は、お客様ご自身でfreee会計を使って実施いただきます（サポート可能）。</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="service-details" class="py-16">
+        <div class="container">
+            <h2 class="section-title">サービス内容</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="card">
+                    <h3 class="text-2xl font-bold mb-4 text-blue-700">毎月のサポート</h3>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2">
+                        <li><strong>収入・支出の代行処理:</strong> お客様に代わって、弊社が会計ソフトへの入力作業を行います。</li>
+                        <li><strong>請求書の発行・受取代行処理:</strong> 煩雑な請求書業務もサポート。</li>
+                    </ul>
+                    <p class="text-sm text-gray-500 mt-4">※弊社で判断できるもののみ対応。支払い代行はできません。</p>
+                </div>
+                <div class="card">
+                    <h3 class="text-2xl font-bold mb-4 text-blue-700">年1回の確定申告サポート</h3>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2">
+                        <li><strong>事業収支の決算整理:</strong> 確定申告に必要な事業の収支をまとめます。</li>
+                        <li><strong>LINEチャットサポート:</strong> 固定資産、源泉徴収、家事按分などの登録方法をチャットで丁寧にサポートします。</li>
+                    </ul>
+                    <p class="text-sm text-gray-500 mt-4">※電話サポートは別途費用がかかります。</p>
+                </div>
+            </div>
+
+            <div class="card mt-8 disclaimer">
+                <h3 class="text-xl font-bold mb-4 text-red-600">【ご注意事項】</h3>
+                <ul class="list-disc list-inside space-y-1">
+                    <li>本サービスは毎月作業を行っていく前提のサービスとなっております。</li>
+                    <li>2ヶ月以上レシートの提出などを溜め込まれた場合は、サービス提供を停止させていただく必要がございます。</li>
+                    <li>税務の専門家ではないため、税務に関わる判断、相談はお受けできません。</li>
+                    <li>確定申告はお客様でfreee会計を使い実施いただきます（操作サポートは可能です）。</li>
+                    <li>アスリート事業（事業所得）に関わる経理、会計の代行及びサポートとなります。不動産所得、給与所得、配当所得、雑所得などは対象外です。</li>
+                    <li>ふるさと納税、医療費控除、保険料控除なども対象外です。</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="customer-voice" class="py-16 bg-blue-100">
+        <div class="container">
+            <h2 class="section-title">お客様の声</h2>
+            <div class="customer-voice-card max-w-3xl mx-auto">
+                <p class="text-xl md:text-2xl font-semibold text-gray-800 mb-4 relative z-10">
+                    「今まで一番嫌いだった確定申告作業があっという間に終わって、めちゃくちゃ楽でした！」
+                </p>
+                <p class="text-lg font-bold text-blue-600 relative z-10">- カヌー選手 (年収900万円台)</p>
+                <div class="customer-voice-canoe">🛶</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="price-plan" class="py-16 bg-gray-50">
+        <div class="container">
+            <h2 class="section-title">料金プラン</h2>
+            <div class="price-card max-w-sm mx-auto">
+                <h3 class="mb-2">基本プラン</h3>
+                <p class="price"><span>月額</span>4,980円〜</p>
+                <p class="text-gray-600">(年間契約)</p>
+                <ul class="list-disc list-inside text-gray-700 mt-6 text-left space-y-2">
+                    <li>毎月の収入・支出代行処理</li>
+                    <li>請求書発行・受取代行処理</li>
+                    <li>確定申告の決算整理サポート</li>
+                    <li>LINEチャットサポート</li>
+                </ul>
+                <a href="#contact" class="btn-primary inline-block mt-8">お申し込みはこちら</a>
+            </div>
+            <p class="text-center text-sm text-gray-500 mt-8">※表示価格は全て税抜き価格です。</p>
+        </div>
+    </section>
+
+    <section id="contact" class="py-16">
+        <div class="container">
+            <div class="contact-section">
+                <h2 class="section-title mb-6">まずはお気軽にご相談ください！</h2>
+                <p class="text-xl text-gray-700 mb-8">お客様の状況に合わせて最適なサポートをご提案いたします。</p>
+                <a href="mailto:info@example.com" class="btn-primary inline-block">お問い合わせはこちら</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-blue-900 text-white py-8 mt-16 rounded-t-lg">
+        <div class="container text-center">
+            <p>&copy; 2025 アスリート確定申告サポート. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
